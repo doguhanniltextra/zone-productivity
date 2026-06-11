@@ -4,7 +4,7 @@
 
 ---
 
-## 🚀 Key Features
+##  Key Features
 
 ### 1. Focus Engine (YouTube Optimization)
 Take control of your YouTube experience. Zone surgically removes the most addictive elements:
@@ -20,17 +20,11 @@ Effortlessly block entire categories of time-consuming websites using Chrome's `
 - **Streaming:** Netflix, Twitch, Disney+, and more.
 - *Includes automatic cleanup of service workers for blocked sites to ensure strict enforcement.*
 
-### 3. Zone Switcher (Neovim-Inspired)
-A keyboard-centric tab switcher designed for power users. Press `Ctrl+Shift+K` (or `Cmd+Shift+K` on Mac) to:
-- Search through all open tabs instantly.
-- Navigate using `j/k` or arrow keys.
-- Swiftly switch between windows and tabs without touching the mouse.
-
-### 4. Tab Freezing
+### 3. Tab Freezing
 Need a temporary break or want to lock a tab?
 - **Freeze Mode:** Applies a high-quality blur and grayscale filter over the current page, preventing interaction and visual distractions while keeping the tab open.
 
-### 5. Pattern Visualization
+### 4. Pattern Visualization
 Understand your digital habits. Zone tracks and visualizes your navigation chains:
 - **History Aggregation:** See which hostnames you visit most.
 - **Path Analysis:** Visualize how you move between sites (Roots vs. Branches).
@@ -38,7 +32,7 @@ Understand your digital habits. Zone tracks and visualizes your navigation chain
 
 ---
 
-## 🛠 Installation
+##  Installation
 
 1. Clone or download this repository.
 2. Open your browser and navigate to the Extensions page (`chrome://extensions`).
@@ -47,7 +41,7 @@ Understand your digital habits. Zone tracks and visualizes your navigation chain
 
 ---
 
-## ⌨️ Shortcuts
+##  Shortcuts
 
 | Shortcut | Action |
 | :--- | :--- |
@@ -58,7 +52,7 @@ Understand your digital habits. Zone tracks and visualizes your navigation chain
 
 ---
 
-## 🏗 Technical Architecture
+##  Technical Architecture
 
 Zone is built with a modern Manifest V3 architecture:
 - **Background Service Worker:** Manages navigation, tab switching, and site blocking logic.
