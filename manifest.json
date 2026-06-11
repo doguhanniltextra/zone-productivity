@@ -11,7 +11,10 @@
     "browsingData",
     "sidePanel",
     "webNavigation",
-    "history"
+    "history",
+    "alarms",
+    "notifications",
+    "offscreen"
   ],
   "commands": {
     "toggle-switcher": {

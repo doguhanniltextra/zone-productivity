@@ -8,12 +8,20 @@ import { ZONE_CONSTANTS } from './utils/constants.js';
 import { ZoneStorage } from './services/storage.js';
 import { BlockerService } from './services/blocker.api.js';
 import { PatternService } from './services/history.js';
+import { StudyService } from './services/study.js';
 import { initNavigationListeners } from './background/navigation.js';
 import { initSwitcherListeners } from './background/switcher.js';
 
 // Initialize Listeners
 initNavigationListeners();
 initSwitcherListeners();
+
+// Handle Alarms (Study Timer)
+chrome.alarms.onAlarm.addListener((alarm) => {
+    if (alarm.name === ZONE_CONSTANTS.STUDY.ALARM_NAME) {
+        StudyService.handleAlarm();
+    }
+});
 
 // Handle Install
 chrome.runtime.onInstalled.addListener(async () => {

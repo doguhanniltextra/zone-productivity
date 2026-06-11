@@ -1,7 +1,15 @@
 export const ZONE_CONSTANTS = {
   STORAGE_KEYS: {
     SETTINGS: 'zone_settings',
-    PATTERN_DATA: 'zone_pattern_data'
+    PATTERN_DATA: 'zone_pattern_data',
+    STUDY_STATE: 'zone_study_state'
+  },
+  STUDY: {
+    ALARM_NAME: 'zone_study_alarm',
+    PHASES: {
+      WORK: 'WORK',
+      BREAK: 'BREAK'
+    }
   },
   PATTERN: {
     SEARCH_PARAMS: ['q', 'search_query', 'query', 'p'],
