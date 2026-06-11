@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone - Deep Focus</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --primary-color: #065fd4;
+            --text-color: #1e293b;
+            --accent-color: #3b82f6;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--text-color);
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 60px;
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 0 0 15px 0;
+            color: var(--text-color);
+            font-weight: 800;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(6, 95, 212, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(6, 95, 212, 0.3);
+            background-color: #054eb1;
+        }
+
+        .footer-note {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #94a3b8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Ambient Circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.05));
+            z-index: -1;
+        }
+
+        .c1 { width: 300px; height: 300px; top: -100px; right: -100px; }
+        .c2 { width: 200px; height: 200px; bottom: -50px; left: -80px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        
+        <div class="icon">🌊</div>
+        <h1>In the Zone</h1>
+        <p>This site is currently blocked to help you stay focused on what really matters. Take a deep breath and keep going!</p>
+        
+        <a href="#" id="close-btn" class="btn">Close Tab & Focus</a>
+        
+        <div class="footer-note">Zone - Your Productivity Shield</div>
+    </div>
+    <script src="blocked.js"></script>
+</body>
+</html>

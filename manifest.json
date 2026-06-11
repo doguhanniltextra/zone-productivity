@@ -1,0 +1,103 @@
+{
+  "manifest_version": 3,
+  "name": "Zone",
+  "version": "1.0.0",
+  "description": "Distraction-free experience for a better focus.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "browsingData",
+    "sidePanel",
+    "webNavigation",
+    "history"
+  ],
+  "commands": {
+    "toggle-switcher": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
+      },
+      "description": "Sekme Değiştiriciyi Aç/Kapat"
+    }
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "src/ui/popup/popup.html"
+  },
+  "action": {
+    "default_title": "Open Zone",
+    "default_icon": "static/logo.png"
+  },
+  "icons": {
+    "16": "static/logo.png",
+    "32": "static/logo.png",
+    "48": "static/logo.png",
+    "128": "static/logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "src/features/switcher/switcher.js"
+      ],
+      "css": [
+        "src/features/switcher/switcher.css"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "src/content/selectors.js",
+        "src/content/features/youtube-features.js",
+        "src/content/content.js"
+      ],
+      "css": [
+        "src/content/content.css"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "src/content/freeze.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/ui/popup/popup.html",
+        "src/ui/popup/popup.js",
+        "src/ui/popup/popup.css",
+        "src/utils/constants.js",
+        "src/services/storage.js",
+        "src/content/selectors.js",
+        "src/blocked/blocked.html",
+        "static/logo.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

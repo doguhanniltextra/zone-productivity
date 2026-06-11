@@ -1,0 +1,129 @@
+/* Zone Switcher - Telescope Style UI */
+#zone-switcher-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(4px) !important;
+    z-index: 2147483647 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    padding-top: 10vh !important;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+    color: #cdd6f4 !important;
+}
+
+#zone-switcher-container {
+    width: 600px !important;
+    max-width: 90vw !important;
+    background: #1e1e2e !important;
+    border: 1px solid #45475a !important;
+    border-radius: 8px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.zone-switcher-search-box {
+    padding: 15px !important;
+    background: #181825 !important;
+    border-bottom: 1px solid #45475a !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.zone-switcher-prompt {
+    color: #89b4fa !important;
+    margin-right: 10px !important;
+    font-weight: bold !important;
+}
+
+#zone-switcher-input {
+    background: transparent !important;
+    border: none !important;
+    color: #f5e0dc !important;
+    font-family: inherit !important;
+    font-size: 16px !important;
+    width: 100% !important;
+    outline: none !important;
+}
+
+#zone-switcher-list {
+    max-height: 50vh !important;
+    overflow-y: auto !important;
+    padding: 5px 0 !important;
+}
+
+#zone-switcher-list::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+#zone-switcher-list::-webkit-scrollbar-thumb {
+    background: #45475a !important;
+    border-radius: 4px !important;
+}
+
+.zone-tab-item {
+    padding: 10px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    border-left: 3px solid transparent !important;
+    transition: all 0.1s ease !important;
+}
+
+.zone-tab-item.selected {
+    background: #313244 !important;
+    border-left-color: #89b4fa !important;
+}
+
+.zone-tab-icon {
+    width: 16px !important;
+    height: 16px !important;
+    margin-right: 12px !important;
+    flex-shrink: 0 !important;
+}
+
+.zone-tab-content {
+    flex-grow: 1 !important;
+    overflow: hidden !important;
+}
+
+.zone-tab-title {
+    font-size: 14px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+}
+
+.zone-tab-url {
+    font-size: 11px !important;
+    color: #6c7086 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+}
+
+.zone-switcher-footer {
+    padding: 8px 15px !important;
+    background: #11111b !important;
+    font-size: 10px !important;
+    color: #585b70 !important;
+    border-top: 1px solid #313244 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.zone-key-hint {
+    color: #a6adc8 !important;
+    background: #313244 !important;
+    padding: 2px 4px !important;
+    border-radius: 3px !important;
+    margin-right: 4px !important;
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone Settings</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1>Zone</h1>
+                <div class="header-actions">
+                    <button id="close-panel" class="icon-btn close" title="Close Side Panel">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+            <p>Focus Mode</p>
+        </header>
+        
+        <main>
+            <div class="section open" id="section-youtube">
+                <button class="section-header">
+                    <h2 class="section-title">YouTube</h2>
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="section-content">
+                    <p class="section-desc">Customize your YouTube experience to stay focused on the content that matters.</p>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-name">Home & Recommendations</span>
+                            <span class="setting-desc">Hides feed and suggested videos.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="hideHomeAndRecommendations">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-name">Comments</span>
+                            <span class="setting-desc">Hides the comments section below videos.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="hideComments">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-name">Shorts</span>
+                            <span class="setting-desc">Hides Shorts tabs and shelves.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="hideShorts">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="section-blocker">
+                <button class="section-header">
+                    <h2 class="section-title">Smart Blocker</h2>
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="section-content">
+                    <p class="section-desc">Manage distractions by blocking time-consuming websites and services.</p>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-name">Social Media</span>
+                            <span class="setting-desc">Insta, X, TikTok, FB.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="blockSocial">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-name">Forums & Discussion</span>
+                            <span class="setting-desc">Reddit, 9GAG, Hacker News.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="blockForums">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-name">Streaming</span>
+                            <span class="setting-desc">Netflix, Twitch, Disney+.</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="blockStreaming">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="section-tabs">
+                <button class="section-header">
+                    <h2 class="section-title">Active Tabs</h2>
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="section-content">
+                    <p class="section-desc">Monitor and control your open tabs to reduce cognitive load.</p>
+                    <div id="tab-list" class="tab-list">
+                        <!-- Tabs will be injected here -->
+                        <p class="loading">Loading tabs...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="section-pattern">
+                <button class="section-header">
+                    <h2 class="section-title">Your Pattern</h2>
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="section-content">
+                    <p class="section-desc">Visualize your research path and connections between your visited pages.</p>
+                    <div class="pattern-info">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>Last 1 hour activity</span>
+                    </div>
+                    <div id="pattern-container" class="pattern-tree">
+                        <p class="loading">Analyzing nodes...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Zone v1.0.0 - Start Focusing</p>
+            <p class="made-by">Made By github.com/doguhanniltextra</p>
+        </footer>
+    </div>
+    <script type="module" src="popup.js"></script>
+</body>
+</html>
