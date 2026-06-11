@@ -5,15 +5,20 @@
 export const initSwitcherListeners = () => {
     // Handle Keyboard Shortcut
     chrome.commands.onCommand.addListener((command) => {
-        console.log('Zone: Command received:', command);
+        console.log('Zone Debug: Command received from browser:', command);
         if (command === 'toggle-switcher') {
             chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                 if (tabs[0]) {
-                    console.log('Zone: Sending toggle message to tab:', tabs[0].id);
+                    console.log('Zone Debug: Target tab found:', tabs[0].id, tabs[0].url);
                     chrome.tabs.sendMessage(tabs[0].id, { type: 'ZONE_TOGGLE_SWITCHER' })
+                        .then(() => {
+                            console.log('Zone Debug: Message sent successfully to tab:', tabs[0].id);
+                        })
                         .catch((err) => {
-                            console.warn('Zone: Message failed. Is content script loaded?', err);
+                            console.error('Zone Debug: FAILED to send message to tab. Is it a protected page (chrome://)? Error:', err);
                         });
+                } else {
+                    console.warn('Zone Debug: No active tab found in current window.');
                 }
             });
         }

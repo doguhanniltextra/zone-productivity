@@ -3,8 +3,6 @@
  * Neovim/Telescope style tab switcher UI
  */
 
-console.log('Zone: Switcher Script Initializing...');
-
 (function() {
     let overlay = null;
     let listElement = null;
@@ -13,8 +11,37 @@ console.log('Zone: Switcher Script Initializing...');
     let filteredTabs = [];
     let selectedIndex = 0;
 
+    console.log('Zone Debug: Content Script Starting...');
+
+    // Direct Key Listener for Ctrl/Cmd+Shift+K
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'K') {
+            e.preventDefault();
+            if (overlay) {
+                closeSwitcher();
+            } else {
+                chrome.runtime.sendMessage({ type: 'ZONE_GET_TABS' }, (response) => {
+                    if (response && response.tabs) {
+                        tabs = response.tabs;
+                        filteredTabs = [...tabs];
+                        selectedIndex = 0;
+                        createUI();
+                        renderList();
+                    }
+                });
+            }
+        }
+    });
+
     const createUI = () => {
         if (overlay) return;
+        
+        // Ensure body exists before appending
+        if (!document.body) {
+            console.warn('Zone Debug: Document body not ready, retrying in 100ms...');
+            setTimeout(createUI, 100);
+            return;
+        }
 
         overlay = document.createElement('div');
         overlay.id = 'zone-switcher-overlay';
@@ -22,16 +49,16 @@ console.log('Zone: Switcher Script Initializing...');
             <div id="zone-switcher-container">
                 <div class="zone-switcher-search-box">
                     <span class="zone-switcher-prompt">❯</span>
-                    <input type="text" id="zone-switcher-input" placeholder="Search sekmeler..." autocomplete="off">
+                    <input type="text" id="zone-switcher-input" placeholder="Search tabs..." autocomplete="off">
                 </div>
                 <div id="zone-switcher-list"></div>
                 <div class="zone-switcher-footer">
                     <div>
-                        <span class="zone-key-hint">j/k</span> <span class="zone-key-hint">↑↓</span> navigasyon
-                        <span class="zone-key-hint">Enter</span> git
+                        <span class="zone-key-hint">j/k</span> <span class="zone-key-hint">↑↓</span> navigate
+                        <span class="zone-key-hint">Enter</span> go to
                     </div>
                     <div>
-                        <span class="zone-key-hint">Esc</span> kapat
+                        <span class="zone-key-hint">Esc</span> close
                     </div>
                 </div>
             </div>
@@ -132,24 +159,38 @@ console.log('Zone: Switcher Script Initializing...');
         return div.innerHTML;
     };
 
-    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-        console.log('Zone: Switcher received message:', message.type);
-        if (message.type === 'ZONE_TOGGLE_SWITCHER') {
-            if (overlay) {
-                closeSwitcher();
-            } else {
-                chrome.runtime.sendMessage({ type: 'ZONE_GET_TABS' }, (response) => {
-                    if (response && response.tabs) {
-                        tabs = response.tabs;
-                        filteredTabs = [...tabs];
-                        selectedIndex = 0;
-                        createUI();
-                        renderList();
-                    }
-                });
-            }
+    const toggleSwitcher = () => {
+        if (overlay) {
+            closeSwitcher();
+        } else {
+            chrome.runtime.sendMessage({ type: 'ZONE_GET_TABS' }, (response) => {
+                if (response && response.tabs) {
+                    tabs = response.tabs;
+                    filteredTabs = [...tabs];
+                    selectedIndex = 0;
+                    createUI();
+                    renderList();
+                }
+            });
+        }
+    };
+
+    // Global Key Listener for F9
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'F9') {
+            console.log('Zone Debug: F9 key pressed');
+            e.preventDefault();
+            toggleSwitcher();
         }
     });
 
-    console.log('Zone: Switcher Listener Registered');
+    // Message Listener
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        console.log('Zone Debug: Message received in content script:', message.type);
+        if (message.type === 'ZONE_TOGGLE_SWITCHER') {
+            toggleSwitcher();
+        }
+    });
+
+    console.log('Zone Debug: Switcher Script Ready');
 })();

@@ -2,6 +2,8 @@
  * Zone - Background Service Worker (Modular)
  */
 
+console.log('Zone Debug: Background Service Worker Starting...');
+
 import { ZONE_CONSTANTS } from './utils/constants.js';
 import { ZoneStorage } from './services/storage.js';
 import { BlockerService } from './services/blocker.api.js';
