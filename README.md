@@ -41,17 +41,6 @@ Understand your digital habits. Zone tracks and visualizes your navigation chain
 
 ---
 
-##  Shortcuts
-
-| Shortcut | Action |
-| :--- | :--- |
-| `Ctrl+Shift+K` | Open/Close Zone Switcher |
-| `j` / `k` | Navigate Down/Up (in Switcher) |
-| `Enter` | Switch to selected tab |
-| `Esc` | Close Switcher |
-
----
-
 ##  Technical Architecture
 
 Zone is built with a modern Manifest V3 architecture:
@@ -63,7 +52,7 @@ Zone is built with a modern Manifest V3 architecture:
 
 ---
 
-## 🔒 Privacy
+##  Privacy
 Zone operates entirely on your local machine. It does not upload your browsing history or personal data to any external servers.
 
 ---
