@@ -143,6 +143,45 @@ header p {
     overflow-y: auto;
 }
 
+.section-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.section-actions .section-desc {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.small-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.secondary-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.secondary-btn:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background: #f8fafc;
+}
+
 /* Scrollbar for better UX */
 .section-content::-webkit-scrollbar {
     width: 6px;

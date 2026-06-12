@@ -173,6 +173,26 @@ const initPopup = async () => {
     refreshTabs();
     setupStudyFeature();
 
+    // Silence Toggle Listener
+    const silenceAllBtn = document.getElementById('silence-all');
+    if (silenceAllBtn) {
+        silenceAllBtn.addEventListener('click', async () => {
+            const tabs = await chrome.tabs.query({ currentWindow: true });
+            const validTabs = tabs.filter(tab => !tab.url.startsWith('chrome://'));
+            
+            // Toggle Logic: If any tab is NOT muted, mute all. Otherwise, unmute all.
+            const anyUnmuted = validTabs.some(tab => !tab.mutedInfo?.muted);
+            const newState = anyUnmuted; 
+
+            const promises = validTabs.map(tab => 
+                chrome.tabs.update(tab.id, { muted: newState })
+            );
+            
+            await Promise.all(promises);
+            refreshTabs();
+        });
+    }
+
     // Storage listeners for auto-refresh
     chrome.storage.onChanged.addListener((changes) => {
         if (changes[ZONE_CONSTANTS.STORAGE_KEYS.PATTERN_DATA]) refreshPattern();

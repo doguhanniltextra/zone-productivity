@@ -143,7 +143,13 @@
                     <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="section-content">
-                    <p class="section-desc">Monitor and control your open tabs to reduce cognitive load.</p>
+                    <div class="section-actions">
+                        <p class="section-desc">Monitor and control your open tabs to reduce cognitive load.</p>
+                        <button id="silence-all" class="secondary-btn small-btn">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                            Silence
+                        </button>
+                    </div>
                     <div id="tab-list" class="tab-list">
                         <!-- Tabs will be injected here -->
                         <p class="loading">Loading tabs...</p>
