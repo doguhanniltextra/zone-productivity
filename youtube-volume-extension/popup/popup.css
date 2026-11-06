@@ -1,0 +1,20 @@
+/* popup.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 10px;
+  width: 200px;
+}
+label {
+  display: block;
+  margin-bottom: 4px;
+}
+input[type="range"] {
+  width: 100%;
+}
+output {
+  display: block;
+  text-align: right;
+  margin-top: 4px;
+  font-weight: bold;
+}
+
